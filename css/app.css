@@ -1,0 +1,364 @@
+/*PARA RESOLVER EL PROBLEMA DEL TAMAÑO DE LA CAJA CUANDO SE LE AGREGA UN PADDING, BORDE O MARGEN*/
+html {
+    box-sizing: border-box;
+    font-size: 62.5% /*1rem = 10px*/
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+    font-size: 1.6rem; /*ppara que la base sean 16px*/
+    line-height: 1.5;/*interlineado para los parrafos*/
+}
+
+/*----------------------------------------------*/
+/*Globales*/
+h1, h2, h3 {
+    font-family: "Playfair Display", serif;
+    margin: 0 0 5rem 0;/*por default todos los headings tienen margin*/
+}
+
+h1 {
+    font-size: 5rem;
+}
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;/*para centrar el contenido, toma los 1200px como base y lo que sobra le agrega como margen a la izq y der*/
+}
+
+img {/*para crear una imagen responsive*/
+    max-width: 100%;
+    display: block;/*elimina el espacio entre la imagen y el siguiente elemento de la parte inferior*/
+}
+
+.btn {
+    color: #fff;
+    background-color: #8cbc00;
+    display: block;/*toma todo el ancho diponible*/
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 1rem;
+    transition: background-color .3s ease-out;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #769c02;
+    cursor: pointer;
+}
+
+/*Utilidades*/
+.text-center {
+    text-align: center;
+}
+
+/*Header y navegacion*/
+.nombre-sitio {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.nombre-sitio span{
+    font-size: 5rem;
+    color: #037bc0;
+}
+
+.contennedor-navegacion {
+    border-top: .1rem solid #e1e1e1;
+}
+
+.nav-principal {
+    padding: 2rem 0;
+    display: flex;/*habilito display flex y todas sus propiedades como flex direccion: colum, row*/
+    justify-content: space-between;
+}
+
+.nav-principal a:hover {
+    color: #037bc0;
+    font-weight: bold;
+}
+
+/*Para agregar la imagen central del inicio con css*/
+.hero {
+    background-image: url('../img/principal.jpg');
+    background-size: cover;/*para cubrir el tamaño de la pagina con la imagen*/
+    background-position: center center;/*para posicionar la imagen en los ejes x, y lo que se ve en la pagina*/
+    height: 55rem;
+}
+
+/*categorias*/
+.categorias {
+    padding-top: 5rem;
+}
+.categorias h2 {
+    text-align: center;
+}
+
+.categoria a {
+    display: block;/*la etiqueta a viene por defecto con diplay inline*/
+    text-align: center;
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+.categoria a:hover {
+    background-color: #037bc0;
+    color: #fff;
+    border-bottom-right-radius: 1rem;/*esquina redondeada especifica, la esquina inferior derecha*/
+
+}
+
+.listado-categorias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;/*separacion entre hijos tanto vertical como horizontal, para css grid*/
+}
+
+/*Bloque Nosotros*/
+.sobre-nosotros {/*para crear un degradado*/
+    background-image: linear-gradient(to right, transparent 50%, #037bc0 50%, #037bc0 100%)
+    , url(../img//nosotros.jpg);
+    background-position: left center;
+    padding: 10rem 0;
+    background-repeat: no-repeat;/*para que la imagen no se repita*/
+    background-size: 100%, 80rem;/*100% para linear-gradient(), 80rem para url(../img//nosotros.jpg)*/
+    margin-top: 5rem;
+}
+
+.sobre-nosotros-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 8rem;
+}
+
+.texto-nosotros {
+    grid-column: 2 / 3;
+    color: #fff;
+}
+
+/*Listado de productos*/
+.contenido-principal {
+    padding-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.listado-productos {/*creo la tabla con grid*/
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+}
+
+.producto:nth-child(1) {/*cada hijo se acomoda en la tabla*/
+    grid-column-start: 1;
+    grid-column-end: 7;
+    display: grid;/*este grid se crea dentro del primer hijo para crear dos columnas*/
+    grid-template-columns: 3fr 1fr;
+}
+
+.producto:nth-child(1) img {
+    height: 43rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.producto:nth-child(2) {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.producto:nth-child(2) img,
+.producto:nth-child(3) img {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.producto:nth-child(3) {
+    grid-column-start: 4;
+    grid-column-end: 7;
+}
+
+.producto:nth-child(4) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.producto:nth-child(5) {
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.producto:nth-child(6) {
+    grid-column-start: 5;
+    grid-column-end: 7;
+}
+
+.producto {
+    background-color: #037bc0;
+}
+
+.texto-producto {
+    text-align: center;
+    color: #fff;
+    padding: 5rem 2rem 2rem 2rem;
+}
+
+.texto-producto p {
+    margin: 0 0 .5rem 0;
+}
+
+.texto-producto h3 {
+    margin: 0;
+}
+
+.texto-producto .precio {
+    font-size: 2.8rem;
+    font-weight: 900;
+}
+
+/*Footer*/
+footer {
+    border-top: .1rem solid #e1e1e1;
+
+}
+.site-footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 5rem 0;
+    gap: 3rem;
+}
+
+.site-footer h3 {
+    margin-bottom: 2rem;
+}
+
+.info-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-weight: 700;
+}
+
+.info-footer:hover a {
+    color: #037bc0;
+}
+
+.derechos {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3rem;
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+/*Pagina Nosotros*/
+.contenido-nosotros {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/*Blog*/
+.contenedor-blog {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 4rem;
+}
+
+.entrada {
+    border-bottom: 2px solid #e1e1e1;
+    padding-bottom: 4rem;
+    margin-bottom: 2rem;
+}
+.entrada:last-of-type {/*busca la ultima clase y aplica los estilos en este caso busca la ultima class="entrada"*/
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.entrada-meta {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+}
+.entrada-meta span {
+    color: #037bc0;
+}
+.entrada .btn{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+/*Entrada*/
+.contenido-entrada-blog {
+    width: 60rem;
+    margin: 0 auto;
+}
+
+/*Galeria*/
+.galeria {
+    list-style: none;/*Quitar la viñeta de la lista*/
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.galeria img {
+    height: 40rem;
+    width: 40rem;
+    object-fit: cover;/*para crear una mascara y se adapte mejor la imagen*/
+}
+
+/*Formulario*/
+.formulario {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.formulario fieldset {
+    border: 1px solid black;
+    margin-bottom: 2rem;
+}
+.formulario legend {
+    background-color: #005485;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.campo {
+    display: flex;
+    margin-bottom: 2rem;
+}
+.campo label {
+    flex-basis: 10rem;/*para que los label midan los 10rem*/
+}
+.campo input:not([type="radio"]),
+.campo textarea, 
+.campo select {
+    flex: 1;
+    border: 1px solid #e1e1e1;
+    padding: 1rem;
+}
